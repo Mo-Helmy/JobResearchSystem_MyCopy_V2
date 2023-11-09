@@ -1,0 +1,11 @@
+[
+  {
+    "JobStatusName": "Pending"
+  },
+  {
+    "JobStatusName": "Published"
+  },
+  {
+    "JobStatusName": "Rejected"
+  }
+]

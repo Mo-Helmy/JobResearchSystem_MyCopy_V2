@@ -1,0 +1,59 @@
+[
+  {
+    "Title": ".Net developpeur full stack",
+    "Description": ".Net developpeur full stack",
+    "Location": " Al 9ahira",
+    "ApplicantsNumber": 20,
+    "RangeSalaryMin": 15000,
+    "RangeSalaryMax": 25000,
+    "CompanyId": 1,
+    "CategoryId": 1,
+    "JobStatusId": 1
+  },
+  {
+    "Title": ".Net developpeur full stack",
+    "Description": ".Net developpeur full stack",
+    "Location": " Al 9ahira",
+    "ApplicantsNumber": 20,
+    "RangeSalaryMin": 15000,
+    "RangeSalaryMax": 25000,
+    "CompanyId": 2,
+    "CategoryId": 2,
+    "JobStatusId": 2
+  },
+  {
+    "Title": ".Net developpeur full stack",
+    "Description": ".Net developpeur full stack",
+    "Location": " Al 9ahira",
+    "ApplicantsNumber": 20,
+    "RangeSalaryMin": 15000,
+    "RangeSalaryMax": 25000,
+    "CompanyId": 3,
+    "CategoryId": 3,
+    "JobStatusId": 3
+  },
+  {
+    "Title": ".Net developpeur full stack",
+    "Description": ".Net developpeur full stack",
+    "Location": " Al 9ahira",
+    "ApplicantsNumber": 20,
+    "RangeSalaryMin": 15000,
+    "RangeSalaryMax": 25000,
+    "CompanyId": 4,
+    "CategoryId": 4,
+    "JobStatusId": 1
+  },
+  {
+    "Title": ".Net developpeur full stack",
+    "Description": ".Net developpeur full stack",
+    "Location": " Al 9ahira",
+    "ApplicantsNumber": 20,
+    "RangeSalaryMin": 15000,
+    "RangeSalaryMax": 25000,
+    "CompanyId": 5,
+    "CategoryId": 5,
+    "JobStatusId": 1
+  }
+
+
+]

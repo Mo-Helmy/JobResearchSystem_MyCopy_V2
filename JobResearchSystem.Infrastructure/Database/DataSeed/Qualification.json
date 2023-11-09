@@ -1,0 +1,38 @@
+[
+  {
+    "SchoolName": "some school name 1",
+    "Degree": "bachlor Degree 1",
+    "FieldOfStudy": "Engineering",
+    "Duration": 5,
+    "Grade": 1.1,
+    "QualificationDescription": "some description",
+    "JobSeekerId": 1
+  },
+  {
+    "SchoolName": "some school name 2",
+    "Degree": "bachlor Degree 2",
+    "FieldOfStudy": "Business",
+    "Duration": 3,
+    "Grade": 3.1,
+    "QualificationDescription": "some description",
+    "JobSeekerId": 2
+  },
+  {
+    "SchoolName": "some school name 3",
+    "Degree": "bachlor Degree 3",
+    "FieldOfStudy": "Business",
+    "Duration": 4,
+    "Grade": 1.1,
+    "QualificationDescription": "some description",
+    "JobSeekerId": 3
+  },
+  {
+    "SchoolName": "some school name 4",
+    "Degree": "bachlor Degree 4",
+    "FieldOfStudy": "Engineering",
+    "Duration": 5,
+    "Grade": 1.1,
+    "QualificationDescription": "some description",
+    "JobSeekerId": 4
+  }
+]

@@ -1,0 +1,42 @@
+[
+  {
+    "CompanyName": "Company 1",
+    "NumberOfJobs": 0,
+    "Address": "123 some address ",
+    "Phone": "010334422334",
+    "Website": "www.xx.com",
+    "UserId": "company1"
+  },
+  {
+    "CompanyName": "Company 2",
+    "NumberOfJobs": 0,
+    "Address": "123 some address ",
+    "Phone": "010334422334",
+    "Website": "www.xx.com",
+    "UserId": "company2"
+  },
+  {
+    "CompanyName": "Company 3",
+    "NumberOfJobs": 0,
+    "Address": "123 some address ",
+    "Phone": "010334422334",
+    "Website": "www.xx.com",
+    "UserId": "company3"
+  },
+  {
+    "CompanyName": "Company 4",
+    "NumberOfJobs": 0,
+    "Address": "123 some address ",
+    "Phone": "010334422334",
+    "Website": "www.xx.com",
+    "UserId": "company4"
+  },
+  {
+    "CompanyName": "Company 5",
+    "NumberOfJobs": 0,
+    "Address": "123 some address ",
+    "Phone": "010334422334",
+    "Website": "www.xx.com",
+    "UserId": "company5"
+  }
+]

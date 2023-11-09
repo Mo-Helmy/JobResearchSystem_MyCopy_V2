@@ -1,0 +1,27 @@
+[
+  {
+    "CVFilePath": "/some/path/file",
+    "ImageFilePath": "/some/path/image",
+    "UserId": "jobseeker1"
+  },
+  {
+    "CVFilePath": "/some/path/file",
+    "ImageFilePath": "/some/path/image",
+    "UserId": "jobseeker2"
+  },
+  {
+    "CVFilePath": "/some/path/file",
+    "ImageFilePath": "/some/path/image",
+    "UserId": "jobseeker3"
+  },
+  {
+    "CVFilePath": "/some/path/file",
+    "ImageFilePath": "/some/path/image",
+    "UserId": "jobseeker4"
+  },
+  {
+    "CVFilePath": "/some/path/file",
+    "ImageFilePath": "/some/path/image",
+    "UserId": "jobseeker5"
+  }
+]

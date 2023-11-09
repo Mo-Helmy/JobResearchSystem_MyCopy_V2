@@ -1,0 +1,11 @@
+[
+  {
+    "UserTypeName": "JobSeeker"
+  },
+  {
+    "UserTypeName": "Company"
+  },
+  {
+    "UserTypeName": "SystemAdministrators"
+  }
+]

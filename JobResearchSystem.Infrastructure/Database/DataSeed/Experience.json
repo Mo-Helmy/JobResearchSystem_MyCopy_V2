@@ -1,0 +1,34 @@
+[
+  {
+    "ExperienceCompanyName": "Wevioo",
+    "ExperienceTitle": ".Net developpeur full stack",
+    "PositionDescription": "Team Lead",
+    "JobSeekerId": 1
+  },
+  {
+    "ExperienceCompanyName": "Teleseminar",
+    "ExperienceTitle": "Consultant maximo IBm",
+    "PositionDescription": "Consultant junior",
+    "JobSeekerId": 1
+  },
+  {
+    "ExperienceCompanyName": "Sinorfi",
+    "ExperienceTitle": "Automation Tester QA",
+    "PositionDescription": "Tester manuel & automatique",
+    "JobSeekerId": 3
+  },
+  {
+    "ExperienceCompanyName": "EYY",
+    "ExperienceTitle": "BI Consutant",
+    "PositionDescription": "Consultant BODS",
+    "JobSeekerId": 4
+  },
+  {
+    "ExperienceCompanyName": "ADP ",
+    "ExperienceTitle": "Consultant ERP SAP",
+    "PositionDescription": "Consultant SAP",
+    "JobSeekerId": 5
+  }
+
+
+]

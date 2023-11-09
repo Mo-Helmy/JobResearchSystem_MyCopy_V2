@@ -1,0 +1,57 @@
+[
+  {
+    "JobId": 1,
+    "JobSeekerId": 1,
+    "ApplicantStatusId": 1
+  },
+  {
+    "JobId": 1,
+    "JobSeekerId": 2,
+    "ApplicantStatusId": 2
+  },
+  {
+    "JobId": 1,
+    "JobSeekerId": 3,
+    "ApplicantStatusId": 3
+  },
+  {
+    "JobId": 2,
+    "JobSeekerId": 1,
+    "ApplicantStatusId": 1
+  },
+  {
+    "JobId": 2,
+    "JobSeekerId": 4,
+    "ApplicantStatusId": 2
+  },
+  {
+    "JobId": 2,
+    "JobSeekerId": 2,
+    "ApplicantStatusId": 3
+  },
+  {
+    "JobId": 3,
+    "JobSeekerId": 5,
+    "ApplicantStatusId": 2
+  },
+  {
+    "JobId": 3,
+    "JobSeekerId": 4,
+    "ApplicantStatusId": 3
+  },
+  {
+    "JobId": 3,
+    "JobSeekerId": 2,
+    "ApplicantStatusId": 1
+  },
+  {
+    "JobId": 5,
+    "JobSeekerId": 1,
+    "ApplicantStatusId": 2
+  },
+  {
+    "JobId": 5,
+    "JobSeekerId": 3,
+    "ApplicantStatusId": 1
+  }
+]
