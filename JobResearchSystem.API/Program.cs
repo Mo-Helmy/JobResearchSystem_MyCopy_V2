@@ -16,6 +16,8 @@ namespace JobResearchSystem.API
         {
             var builder = WebApplication.CreateBuilder(args);
 
+            #region Services
+
             // Add services to the container.
             builder.Services.AddControllers().AddJsonOptions(opt =>
             {
@@ -24,23 +26,24 @@ namespace JobResearchSystem.API
                                = JsonIgnoreCondition.WhenWritingNull;
             });
 
-            #region Configure Connection
             builder.Services.AddDbContext<AppDbContext>(optionsBuilder =>
                 optionsBuilder.UseSqlServer(builder.Configuration.GetConnectionString("Default")));
-            #endregion
 
             // Custom Extension
-            builder.Services.AddIdentityServices();
-            
+            builder.Services.AddIdentityServices(builder.Configuration);
+
             // Custom Extension
             builder.Services
                 .AddInfrastructureDependencies()
                 .AddApplicationDependencies();
 
             // Custom Extension
-            builder.Services.AddSwaggerServices();
+            builder.Services.AddSwaggerServices(); 
+            #endregion
 
             var app = builder.Build();
+
+            #region Middlewares
 
             // Custom Extension
             await app.UpdateDatabase();
@@ -54,10 +57,11 @@ namespace JobResearchSystem.API
 
             app.UseHttpsRedirection();
 
+            app.UseAuthentication();
             app.UseAuthorization();
 
-
-            app.MapControllers();
+            app.MapControllers(); 
+            #endregion
 
             app.Run();
         }

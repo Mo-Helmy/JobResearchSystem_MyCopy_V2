@@ -16,7 +16,6 @@ namespace JobResearchSystem.Application.Features.Qualifications.Commands.Validat
                .NotEmpty();
 
             RuleFor(x => x.SchoolName)
-               .NotEmpty().WithMessage("NotEmpty")
                .MinimumLength(5).WithMessage("School Name Minimum Length is 1 characters ")
                .MaximumLength(50).WithMessage("School Name Maximum Length is 50 characters ");
         }

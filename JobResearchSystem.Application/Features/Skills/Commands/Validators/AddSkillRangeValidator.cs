@@ -1,13 +1,19 @@
 ﻿using FluentValidation;
 using JobResearchSystem.Application.Features.Skills.Commands.Models;
+using JobResearchSystem.Domain.Entities;
+using JobResearchSystem.Infrastructure.Specifications;
+using JobResearchSystem.Infrastructure.UnitOfWorks.Contract;
 
 namespace JobResearchSystem.Application.Features.Skills.Commands.Validators
 {
     public class AddSkillRangeValidator : AbstractValidator<AddSkillRangeCommand>
     {
-        public AddSkillRangeValidator() 
-        { 
-            ApplyValidationsRules(); 
+        private readonly IUnitOfWork unitOfWork;
+
+        public AddSkillRangeValidator(IUnitOfWork unitOfWork)
+        {
+            this.unitOfWork = unitOfWork;
+            ApplyValidationsRules();
         }
 
         public void ApplyValidationsRules()
@@ -16,11 +22,12 @@ namespace JobResearchSystem.Application.Features.Skills.Commands.Validators
                 .NotEmpty()
                 .NotNull();
 
-            //RuleFor(x => x.SkillName)
-            //   .NotEmpty().WithMessage("NotEmpty")
-            //   .NotNull().WithMessage("Skill Name Required")
-            //   .MinimumLength(1).WithMessage("Skill Name Minimum Length is 1 characters ")
-            //   .MaximumLength(50).WithMessage("Skill Name Maximum Length is 50 characters ");
+            //// For Testing purpose
+            //RuleForEach(x => x.Skills).MustAsync(async (x, _) =>
+            //{
+            //    return await unitOfWork.GetRepository<Skill>().GetByIdWithSpecAsync(new BaseSpecification<Skill>(entity => entity.SkillName == x.SkillName)) is null;
+            //}).WithMessage("my skill error message");
         }
+
     }
 }

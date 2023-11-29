@@ -1,5 +1,7 @@
 ﻿using JobResearchSystem.API;
+using JobResearchSystem.Domain.Entities.Identity;
 using JobResearchSystem.Infrastructure.Database;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 
 namespace JobResearchSystem.API.Extensions
@@ -12,13 +14,16 @@ namespace JobResearchSystem.API.Extensions
 
             var dbContext = scope.ServiceProvider.GetRequiredService<AppDbContext>();
 
+            var roleManager = scope.ServiceProvider.GetRequiredService<RoleManager<IdentityRole>>();
+            var userManager = scope.ServiceProvider.GetRequiredService<UserManager<ApplicationUser>>();
+
             var loggerFactory = scope.ServiceProvider.GetRequiredService<ILoggerFactory>();
 
             try
             {
                 await dbContext.Database.MigrateAsync();
 
-                await AppContextSeed.SeedAsync(dbContext);
+                await AppContextSeed.SeedAsync(dbContext, userManager, roleManager);
             }
             catch (Exception ex)
             {

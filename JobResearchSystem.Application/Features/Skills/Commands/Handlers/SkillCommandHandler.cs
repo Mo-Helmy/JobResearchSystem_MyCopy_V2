@@ -47,7 +47,7 @@ namespace JobResearchSystem.Application.Features.Skills.Commands.Handlers
         {
             var entity = _mapper.Map<Skill>(request);
 
-            var updatedEntity = await _skillService.UpdateAsync(entity);
+            var updatedEntity = await _skillService.UpdateAsync(request.Id, request);
 
             if (updatedEntity is null)
                 return BadRequest<SkillDetailsResponse>("Something Went Wrong");

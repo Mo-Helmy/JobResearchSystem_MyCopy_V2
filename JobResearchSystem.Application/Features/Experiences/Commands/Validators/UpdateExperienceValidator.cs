@@ -13,15 +13,15 @@ namespace JobResearchSystem.Application.Features.Experiences.Commands.Validators
                .NotEmpty()
                .NotNull();
 
-            RuleFor(x => x.ExperienceTitle)
-               .NotEmpty().WithMessage("NotEmpty")
-               .MinimumLength(5).WithMessage("Skill Name Minimum Length is 1 characters ")
-               .MaximumLength(50).WithMessage("Skill Name Maximum Length is 50 characters ");
+            //RuleFor(x => x.ExperienceTitle)
+            //   .NotEmpty().WithMessage("NotEmpty")
+            //   .MinimumLength(5).WithMessage("Skill Name Minimum Length is 1 characters ")
+            //   .MaximumLength(50).WithMessage("Skill Name Maximum Length is 50 characters ");
 
-            RuleFor(x => x.ExperienceCompanyName)
-               .NotEmpty()
-               .MinimumLength(5)
-               .MaximumLength(50);
+            //RuleFor(x => x.ExperienceCompanyName)
+            //   .NotEmpty()
+            //   .MinimumLength(5)
+            //   .MaximumLength(50);
         }
     }
 }

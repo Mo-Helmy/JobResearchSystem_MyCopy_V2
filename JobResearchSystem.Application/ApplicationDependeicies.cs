@@ -1,5 +1,6 @@
 ﻿using FluentValidation;
 using JobResearchSystem.Application.Behaviors;
+using JobResearchSystem.Application.IService;
 using JobResearchSystem.Application.Services;
 using JobResearchSystem.Application.Services.Contract;
 using MediatR;
@@ -20,7 +21,7 @@ namespace JobResearchSystem.Application
             services.AddScoped<IQualificationService, QualificationService>();
             services.AddScoped<IJobSeekerService, JobSeekerService>();
 
-            //services.AddTransient<IAuthService, AuthService>();
+            services.AddScoped<IAuthService, AuthService>();
 
             services.AddMediatR(cfg => cfg.RegisterServicesFromAssemblies(Assembly.GetExecutingAssembly()));
 

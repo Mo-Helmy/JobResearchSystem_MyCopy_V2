@@ -3,6 +3,7 @@ using JobResearchSystem.Domain.Entities;
 using JobResearchSystem.Infrastructure.Repositories.Contract;
 using JobResearchSystem.Infrastructure.UnitOfWorks.Contract;
 using System.Linq.Expressions;
+using System.Reflection;
 
 namespace JobResearchSystem.Application.Services
 {
@@ -26,7 +27,7 @@ namespace JobResearchSystem.Application.Services
         public virtual async Task<TEntity?> GetByIdAsync(int id)
         {
             var entity = await _unitOfWork.GetRepository<TEntity>().GetByIdAsync(id);
-            return entity; 
+            return entity;
         }
 
         public virtual async Task<TEntity?> CreateAsync(TEntity entity)
@@ -38,26 +39,54 @@ namespace JobResearchSystem.Application.Services
             return count > 0 ? entity : null;
         }
 
-        public virtual async Task<TEntity?> UpdateAsync(TEntity entity)
+        public virtual async Task<TEntity?> UpdateAsync(int id, object updateCommand)
         {
-            var updatedEntity = await _unitOfWork.GetRepository<TEntity>().UpdateAsync(entity);
+            var currentEntity = await _unitOfWork.GetRepository<TEntity>().GetByIdAsync(id);
 
-            if(updatedEntity is null) return null;
+            if (currentEntity is null) throw new KeyNotFoundException("Id Key Not Exist");
+
+            currentEntity.DateUpdated = DateTime.Now;
+
+            UpdateObject(currentEntity, updateCommand);
 
             var count = await _unitOfWork.Complete();
 
-            return count > 0 ? updatedEntity : null;
+            return count > 0 ? currentEntity : null;
         }
 
         public virtual async Task<bool> DeleteAsync(int id)
         {
             var deletedEntity = await _unitOfWork.GetRepository<TEntity>().DeleteAsync(id);
 
-            if(deletedEntity is null) return false;
+            if (deletedEntity is null) return false;
 
             var count = await _unitOfWork.Complete();
 
             return count > 0 ? true : false;
+        }
+
+
+        /// <summary>
+        /// Update the target object from properties of the source object
+        /// </summary>
+        /// <param name="target">Current object need update.</param>
+        /// <param name="source">New object that will update the target object.</param>
+        private static void UpdateObject(object target, object source)
+        {
+            Type targetType = target.GetType();
+            Type sourceType = source.GetType();
+
+            PropertyInfo[] sourceProperties = sourceType.GetProperties();
+            foreach (PropertyInfo sourceProperty in sourceProperties)
+            {
+                PropertyInfo targetProperty = targetType.GetProperty(sourceProperty.Name);
+                if (targetProperty != null && targetProperty.PropertyType == sourceProperty.PropertyType)
+                {
+                    object value = sourceProperty.GetValue(source, null);
+
+                    if (value is not null) targetProperty.SetValue(target, value, null);
+                }
+            }
         }
     }
 }

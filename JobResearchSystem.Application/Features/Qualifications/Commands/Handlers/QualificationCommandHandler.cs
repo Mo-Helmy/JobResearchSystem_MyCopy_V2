@@ -43,7 +43,7 @@ namespace JobResearchSystem.Application.Features.Qualifications.Commands.Handler
         {
             var entity = _mapper.Map<Qualification>(request);
 
-            var updatedEntity = await _qualificationService.UpdateAsync(entity);
+            var updatedEntity = await _qualificationService.UpdateAsync(request.Id, request);
 
             if (updatedEntity is null)
                 return BadRequest<QualificationResponse>("Something Went Wrong");

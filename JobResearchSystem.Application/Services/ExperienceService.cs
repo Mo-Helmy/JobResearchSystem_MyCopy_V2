@@ -25,15 +25,5 @@ namespace JobResearchSystem.Application.Services
             return experiencesList;
         }
 
-        public override async Task<Experience?> UpdateAsync(Experience entity)
-        {
-            var currentEntity = await _unitOfWork.GetRepository<Experience>().GetByIdAsync(entity.Id);
-
-            if (currentEntity is null) throw new ValidationException("Experience Id Not Found");
-
-            entity.JobSeekerId = currentEntity.JobSeekerId;
-
-            return await base.UpdateAsync(entity);
-        }
     }
 }

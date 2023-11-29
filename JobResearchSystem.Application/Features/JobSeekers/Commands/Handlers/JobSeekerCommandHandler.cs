@@ -7,7 +7,7 @@ using JobResearchSystem.Application.Services.Contract;
 using JobResearchSystem.Domain.Entities;
 using MediatR;
 
-namespace JobResearchSystem.Application.Feature.JobSeekers.Commands.Handlers
+namespace JobResearchSystem.Application.Features.JobSeekers.Commands.Handlers
 {
     public class JobSeekerCommandHandler : ResponseHandler,
                                            IRequestHandler<AddJobSeekerCommand, BaseResponse<JobSeekerResponse>>,
@@ -70,56 +70,13 @@ namespace JobResearchSystem.Application.Feature.JobSeekers.Commands.Handlers
 
         public async Task<BaseResponse<JobSeekerResponse>> Handle(UpdateJobSeekerCommand request, CancellationToken cancellationToken)
         {
-            var existingJobSeeker = await _jobSeekerService.GetByIdAsync(request.Id);
+            var updatedJobSeeker = await _jobSeekerService.UpdateJobSeekerAsync(request);
 
-            if (existingJobSeeker == null)
-            {
-                return NotFound<JobSeekerResponse>("This Id Doesn't Exist in DB");
-            }
+            var mappedJobSeeker = _mapper.Map<JobSeekerResponse>(updatedJobSeeker);
 
-            var jobSeeker = _mapper.Map<JobSeeker>(request);
+            if (mappedJobSeeker == null)  return BadRequest<JobSeekerResponse>("");
 
-            if (request.ImageForm != null)//Update Image
-            {
-                if (existingJobSeeker.ImageFilePath != null)
-                {
-                    await Helper.HandelFiles.RemoveFile(existingJobSeeker.ImageFilePath, "image"); // remove old Image
-                }
-
-                var myTuple = await Helper.HandelFiles.UploadFile(request.ImageForm); // Add the New Image
-
-                if (myTuple.Item1)
-                {
-                    jobSeeker.ImageFilePath = myTuple.Item2;
-                }
-                else
-                    return BadRequest<JobSeekerResponse>(myTuple.Item2);
-            }
-
-            if (request.CvForm != null)//Update Cv
-            {
-                if (existingJobSeeker.CVFilePath != null)
-                {
-                    await Helper.HandelFiles.RemoveFile(existingJobSeeker.CVFilePath, "cv"); // remove old Image
-                }
-
-                var myTuple = await Helper.HandelFiles.UploadFile(request.CvForm); // Add the New Image
-
-                if (myTuple.Item1)
-                {
-                    jobSeeker.CVFilePath = myTuple.Item2;
-                }
-                else
-                    return BadRequest<JobSeekerResponse>(myTuple.Item2);
-            }
-
-            var result = await _jobSeekerService.UpdateAsync(jobSeeker);
-
-            var resultDto = _mapper.Map<JobSeekerResponse>(result);
-
-            if (resultDto == null)  return BadRequest<JobSeekerResponse>("");
-
-            return Success<JobSeekerResponse>(resultDto); 
+            return Success(mappedJobSeeker); 
         }
 
         public async Task<BaseResponse<string>> Handle(DeleteJobSeekerCommand request, CancellationToken cancellationToken)

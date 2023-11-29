@@ -8,9 +8,9 @@ namespace JobResearchSystem.Application.Features.Experiences.Commands.Models
     public class UpdateExperienceCommand : IRequest<BaseResponse<ExperienceResponse>>
     {
         public int Id { get; set; }
-        public string ExperienceCompanyName { get; set; }
+        public string? ExperienceCompanyName { get; set; }
 
-        public string ExperienceTitle { get; set; }
+        public string? ExperienceTitle { get; set; }
 
         public DateTime? ExperienceStartDate { get; set; }
         public DateTime? ExperienceEndDate { get; set; }

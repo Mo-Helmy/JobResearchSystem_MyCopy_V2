@@ -7,7 +7,7 @@ namespace JobResearchSystem.Application.Features.Qualifications.Commands.Models
     public class UpdateQualificationCommand : IRequest<BaseResponse<QualificationResponse>>
     {
         public int Id { get; set; }
-        public string SchoolName { get; set; }
+        public string? SchoolName { get; set; }
         public string? Degree { get; set; }
         public string? FieldOfStudy { get; set; }
         public decimal? Duration { get; set; }

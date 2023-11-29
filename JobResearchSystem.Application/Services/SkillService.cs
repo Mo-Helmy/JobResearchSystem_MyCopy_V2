@@ -29,17 +29,6 @@ namespace JobResearchSystem.Application.Services
             return await base.CreateAsync(entity);
         }
 
-        public override async Task<Skill?> UpdateAsync(Skill entity)
-        {
-            var skillSpecification = new BaseSpecification<Skill>(x => x.SkillName.ToLower() == entity.SkillName.ToLower());
-
-            var currentSkill = await _unitOfWork.GetRepository<Skill>().GetByIdWithSpecAsync(skillSpecification);
-
-            if (currentSkill is not null) throw new ValidationException("Skill name must be unique!");
-
-            return await base.UpdateAsync(entity);
-        }
-
         public async Task<IEnumerable<Skill>> AddSkillRangeToJobSeeker(int jobSeekerId, IEnumerable<Skill> skills)
         {
             var jobSeekerSpecification = new BaseSpecification<JobSeeker>(x => x.Id == jobSeekerId)

@@ -44,7 +44,7 @@ namespace JobResearchSystem.Application.Features.Experiences.Commands.Handlers
         {
             var entity = _mapper.Map<Experience>(request);
 
-            var updatedEntity = await _experienceService.UpdateAsync(entity);
+            var updatedEntity = await _experienceService.UpdateAsync(request.Id, request);
 
             if (updatedEntity is null)
                 return BadRequest<ExperienceResponse>("Something Went Wrong");
